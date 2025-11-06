@@ -19,7 +19,7 @@ Both applications are managed as Git submodules in this repository for easy deve
 ## 🏗️ Project Structure
 
 ```
-ecommerce/
+ecommerce-platform/
 ├── ecommerce-store/      # Frontend store (Customer-facing)
 │   ├── Next.js 15
 │   ├── React 19
@@ -66,8 +66,8 @@ ecommerce/
 1. **Clone the repository with submodules:**
 
 ```bash
-git clone --recurse-submodules https://github.com/koniz-dev/ecommerce.git
-cd ecommerce
+git clone --recurse-submodules https://github.com/koniz-dev/ecommerce-platform.git
+cd ecommerce-platform
 ```
 
 Or if you already cloned:
