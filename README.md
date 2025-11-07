@@ -20,19 +20,22 @@ Both applications are managed as Git submodules in this repository for easy deve
 
 ```
 ecommerce-platform/
-├── ecommerce-store/      # Frontend store (Customer-facing)
-│   ├── Next.js 15
-│   ├── React 19
-│   ├── Tailwind CSS
-│   └── Zustand (State Management)
+├── single-tenant/           # Single-tenant architecture
+│   ├── ecommerce-store/     # Frontend store (Customer-facing)
+│   │   ├── Next.js 15
+│   │   ├── React 19
+│   │   ├── Tailwind CSS
+│   │   └── Zustand (State Management)
+│   │
+│   └── ecommerce-admin/     # Admin dashboard (Seller-facing)
+│       ├── Next.js 15
+│       ├── React 19
+│       ├── Prisma (ORM)
+│       ├── Clerk (Authentication)
+│       ├── Stripe (Payment)
+│       └── Recharts (Analytics)
 │
-└── ecommerce-admin/      # Admin dashboard (Seller-facing)
-    ├── Next.js 15
-    ├── React 19
-    ├── Prisma (ORM)
-    ├── Clerk (Authentication)
-    ├── Stripe (Payment)
-    └── Recharts (Analytics)
+└── multi-tenant-ecommerce/  # Multi-tenant architecture (separate project)
 ```
 
 ## ✨ Features
@@ -79,7 +82,7 @@ git submodule update --init --recursive
 2. **Install dependencies for Store:**
 
 ```bash
-cd ecommerce-store
+cd single-tenant/ecommerce-store
 npm install
 # or
 yarn install
@@ -90,7 +93,7 @@ pnpm install
 3. **Install dependencies for Admin:**
 
 ```bash
-cd ../ecommerce-admin
+cd single-tenant/ecommerce-admin
 npm install
 # or
 yarn install
@@ -103,7 +106,7 @@ pnpm install
 #### Run Store (Port 3000)
 
 ```bash
-cd ecommerce-store
+cd single-tenant/ecommerce-store
 npm run dev
 ```
 
@@ -112,7 +115,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 #### Run Admin (Port 3001)
 
 ```bash
-cd ecommerce-admin
+cd single-tenant/ecommerce-admin
 npm run dev
 ```
 
@@ -124,7 +127,7 @@ Open [http://localhost:3001](http://localhost:3001) in your browser.
 
 #### E-commerce Store
 
-Create a `.env.local` file in the `ecommerce-store` directory:
+Create a `.env.local` file in the `single-tenant/ecommerce-store` directory:
 
 ```env
 # API endpoints
@@ -133,7 +136,7 @@ NEXT_PUBLIC_API_URL=http://localhost:3001/api
 
 #### E-commerce Admin
 
-Create a `.env.local` file in the `ecommerce-admin` directory:
+Create a `.env.local` file in the `single-tenant/ecommerce-admin` directory:
 
 ```env
 # Database
@@ -159,7 +162,7 @@ NEXT_PUBLIC_APP_URL=http://localhost:3001
 Then run Prisma migrations:
 
 ```bash
-cd ecommerce-admin
+cd single-tenant/ecommerce-admin
 npx prisma migrate dev
 npx prisma generate
 ```
@@ -221,19 +224,19 @@ git submodule update --remote
 ### Update submodules to specific commits
 
 ```bash
-cd ecommerce-store
+cd single-tenant/ecommerce-store
 git checkout <commit-hash>
-cd ..
+cd ../..
 
-cd ecommerce-admin
+cd single-tenant/ecommerce-admin
 git checkout <commit-hash>
-cd ..
+cd ../..
 ```
 
 ### Commit submodule changes
 
 ```bash
-git add ecommerce-store ecommerce-admin
+git add single-tenant/ecommerce-store single-tenant/ecommerce-admin
 git commit -m "Update submodules"
 ```
 
@@ -242,7 +245,7 @@ git commit -m "Update submodules"
 ### Store
 
 ```bash
-cd ecommerce-store
+cd single-tenant/ecommerce-store
 npm run build
 npm run start
 ```
@@ -250,7 +253,7 @@ npm run start
 ### Admin
 
 ```bash
-cd ecommerce-admin
+cd single-tenant/ecommerce-admin
 npm run build
 npm run start
 ```
