@@ -35,7 +35,8 @@ ecommerce-platform/
 │       ├── Stripe (Payment)
 │       └── Recharts (Analytics)
 │
-└── multi-tenant-ecommerce/  # Multi-tenant architecture (separate project)
+└── multi-tenant/             # Multi-tenant architecture
+    └── course-marketplace/   # Course marketplace (separate project)
 ```
 
 ## ✨ Features

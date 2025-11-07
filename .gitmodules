@@ -4,6 +4,6 @@
 [submodule "ecommerce-admin"]
 	path = single-tenant/ecommerce-admin
 	url = https://github.com/koniz-dev/ecommerce-admin.git
-[submodule "multi-tenant-ecommerce"]
-	path = multi-tenant-ecommerce
-	url = https://github.com/koniz-dev/multi-tenant-ecommerce.git
+[submodule "course-marketplace"]
+	path = multi-tenant/course-marketplace
+	url = https://github.com/koniz-dev/course-marketplace.git
